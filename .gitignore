@@ -15,3 +15,11 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore PG development.yml
+/config/database.yml
+
+# ignore country city state files
+/lib/data/worldcitiespop.txt
+/lib/data/worldcountries.txt
+/lib/data/worldstates.txt
