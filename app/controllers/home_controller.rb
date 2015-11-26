@@ -1,16 +1,21 @@
 class HomeController < ApplicationController
+
   def index
     @countries  = Country.all
   end
 
-  def states_in_selected_country
+  def get_country_states
     country = Country.find(params[:id])
-    @states = country.states
+    states = country.states.sort_by{ |m| m.name}
+
+    render :json => states
   end
 
-  def cities_in_selected_state
+  def get_states_cities
     state = State.find(params[:id])
-    @cities = state.cities
+    cities = state.cities.sort_by{ |m| m.name}
+
+    render :json => cities
   end
 
 end
