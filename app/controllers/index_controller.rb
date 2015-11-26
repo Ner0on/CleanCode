@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class IndexController < ApplicationController
   def index
     @countries  = Country.all
   end
