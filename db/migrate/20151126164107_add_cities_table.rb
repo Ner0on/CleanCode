@@ -1,12 +1,9 @@
-class CreateCities < ActiveRecord::Migration
+class AddCitiesTable < ActiveRecord::Migration
   def change
     create_table :cities do |t|
-      
       t.string      :name
-      t.belongs_to  :counrty
+      t.belongs_to  :country
       t.belongs_to  :state
-
-      t.timestamps null: false
     end
   end
 end

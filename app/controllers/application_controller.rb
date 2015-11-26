@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def get_country_states
     country = Country.find(params[:id])
-    states = country.states.sort_by{ |m| m.name}
+    states = country.states.sort_by{ |m| m.name.gsub!('"','')}
 
     render :json => states
   end
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def get_states_cities
     state = State.find(params[:id])
     cities = state.cities.sort_by{ |m| m.name}
-
+    
     render :json => cities
   end
 

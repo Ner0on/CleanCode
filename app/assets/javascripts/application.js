@@ -13,10 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
 $( document ).ready(function() {
-
+  console.log("loaded");
   $('#country').change( function(evt){
     evt.preventDefault()
     if( $( this ).val() != "" ){

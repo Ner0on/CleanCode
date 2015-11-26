@@ -26,6 +26,7 @@ namespace :seed do
       (geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_name,subdivision_1_iso_code,subdivision_1_name,subdivision_2_iso_code,subdivision_2_name,city_name,metro_code,time_zone) = line.split(',')
       next if country_iso_code.blank? || subdivision_1_name.blank?
       country =  Country.where(code: country_iso_code.downcase ).last
+      subdivision_1_name.gsub!('"','')
       values << "(\'#{subdivision_1_name.gsub("'","`")}\',\'#{country.id}\')"
     end
     sql = "INSERT INTO states (name, country_id) VALUES #{values.uniq.join(", ")}"
