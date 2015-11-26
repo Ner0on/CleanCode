@@ -3,7 +3,7 @@ $( document ).ready(function() {
   $('#country').change( function(evt){
     evt.preventDefault()
     if( $( this ).val() != "" ){
-      country_id = $( this ).val();
+      var country_id = $( this ).val();
       get_country_states(country_id);
       $('#states').remove();
     }
@@ -19,7 +19,7 @@ $( document ).ready(function() {
         $('#states').change( function(evt){
           evt.preventDefault()
           if( $( this ).val() != ""){
-            state_id = $( this ).val();
+            var state_id = $( this ).val();
             get_state_cities(state_id);
             $('#cities').remove();
           }
